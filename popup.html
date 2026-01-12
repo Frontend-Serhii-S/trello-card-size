@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .field {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: #B6C2CF;
+    }
+
+    input {
+      width: 100%;
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 2px solid #7d7878;
+      border-radius: 4px;
+      box-sizing: border-box;
+      box-shadow: 0 0 3px #7d7878;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4c9aff;
+    }
+
+    .remaining {
+      margin: 8px 0 12px;
+      font-size: 14px;
+      color: #B6C2CF;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .save {
+      background-color: #5b8def;
+      color: #fff;
+    }
+
+    .remove {
+      background-color: #e57373;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="row">
+  <div class="field">
+    <label>Size</label>
+    <input type="number" step="0.25" id="size" />
+  </div>
+  <div class="field">
+    <label>Spent</label>
+    <input type="number" step="0.25" id="spent" />
+  </div>
+</div>
+
+<div class="remaining" id="remaining">
+  Remaining: 0
+</div>
+
+<div class="buttons">
+  <button class="save" id="save">Save</button>
+  <button class="remove" id="remove">Remove</button>
+</div>
+
+<script src="./popup.js"></script>
+</body>
+</html>
+
+
