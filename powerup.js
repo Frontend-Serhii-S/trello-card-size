@@ -1,15 +1,17 @@
+function callback(t) {
+  return t.popup({
+    title: 'Card Size',
+    url: './popup.html',
+    height: 141
+  });
+}
+
 TrelloPowerUp.initialize({
   'card-buttons': function (t) {
     return [{
       icon: 'https://frontend-serhii-s.github.io/trello-card-size/clock.svg',
       text: 'Card Size',
-      callback: function (t) {
-        return t.popup({
-          title: 'Card Size',
-          url: './popup.html',
-          height: 141
-        });
-      }
+      callback: callback,
     }];
   },
 
@@ -42,19 +44,13 @@ TrelloPowerUp.initialize({
     const { size = null, spent = null } = await t.get('card', 'shared') || {};
 
     const badges = [];
-    
-    if (!size && !spent) {
+
+    if (size === null && spent === null) {
       badges.push({
         title: 'Size',
         text: 'Set card size',
         color: 'green',
-        callback: function(t) {
-          return t.popup({
-            title: 'Card Size',
-            url: './popup.html',
-            height: 141
-          });
-        }
+        callback: callback,
       });
     }
 
@@ -62,7 +58,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Size',
         text: `${size}`,
-        color: 'orange'
+        color: 'orange',
+        callback: callback,
       });
     }
 
@@ -70,7 +67,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Spent',
         text: `${spent}`,
-        color: 'green'
+        color: 'green',
+        callback: callback,
       });
     }
 
@@ -80,7 +78,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Remaining',
         text: `${remaining}`,
-        color: 'blue'
+        color: 'blue',
+        callback: callback,
       });
     }
 
