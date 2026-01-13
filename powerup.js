@@ -43,18 +43,20 @@ TrelloPowerUp.initialize({
 
     const badges = [];
 
+    function callback(t) {
+      return t.popup({
+        title: 'Card Size',
+        url: './popup.html',
+        height: 141
+      });
+    }
+
     if (!size && !spent) {
       badges.push({
         title: 'Size',
         text: 'Set card size',
         color: 'green',
-        callback: function(t) {
-          return t.popup({
-            title: 'Card Size',
-            url: './popup.html',
-            height: 141
-          });
-        }
+        callback
       });
     }
 
@@ -62,7 +64,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Size',
         text: `${size}`,
-        color: 'orange'
+        color: 'orange',
+        callback
       });
     }
 
@@ -70,7 +73,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Spent',
         text: `${spent}`,
-        color: 'green'
+        color: 'green',
+        callback
       });
     }
 
@@ -80,7 +84,8 @@ TrelloPowerUp.initialize({
       badges.push({
         title: 'Remaining',
         text: `${remaining}`,
-        color: 'blue'
+        color: 'blue',
+        callback
       });
     }
 
