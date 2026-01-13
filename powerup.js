@@ -1,15 +1,17 @@
+function callback(t) {
+  return t.popup({
+    title: 'Card Size',
+    url: './popup.html',
+    height: 141
+  });
+}
+
 TrelloPowerUp.initialize({
   'card-buttons': function (t) {
     return [{
       icon: 'https://sergeysirenko.github.io/trello-time-sizing-powerup/clock.svg',
       text: 'Card Size',
-      callback: function (t) {
-        return t.popup({
-          title: 'Card Size',
-          url: './popup.html',
-          height: 141
-        });
-      }
+      callback: callback,
     }];
   },
 
@@ -43,20 +45,12 @@ TrelloPowerUp.initialize({
 
     const badges = [];
 
-    function callback(t) {
-      return t.popup({
-        title: 'Card Size',
-        url: './popup.html',
-        height: 141
-      });
-    }
-
     if (!size && !spent) {
       badges.push({
         title: 'Size',
         text: 'Set card size',
         color: 'green',
-        callback
+        callback: callback,
       });
     }
 
@@ -65,7 +59,7 @@ TrelloPowerUp.initialize({
         title: 'Size',
         text: `${size}`,
         color: 'orange',
-        callback
+        callback: callback,
       });
     }
 
@@ -74,7 +68,7 @@ TrelloPowerUp.initialize({
         title: 'Spent',
         text: `${spent}`,
         color: 'green',
-        callback
+        callback: callback,
       });
     }
 
@@ -85,7 +79,7 @@ TrelloPowerUp.initialize({
         title: 'Remaining',
         text: `${remaining}`,
         color: 'blue',
-        callback
+        callback: callback,
       });
     }
 
